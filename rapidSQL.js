@@ -4,8 +4,7 @@ class Database{
     pool = null;
     conData = null;
 
-    constructor({host, user, password, database, port=3306, connectionLimit=10, connectTimeout=1000, stringifyObjects=false, debug=false}){
-        if(!host) throw 'Please provide a host!';
+    constructor({host='localhost', user, password, database, port=3306, connectionLimit=10, stringifyObjects=false, debug=false}){
         if(!user) throw 'Please provide a user!';
         if(!password) throw 'Please provide a password!';
         if(!database) throw 'Please provide a database!';
@@ -16,9 +15,10 @@ class Database{
             database: database,
             port: port,
             connectionLimit: connectionLimit,
-            connectTimeout: connectTimeout,
             stringifyObjects: stringifyObjects,
-            debug: debug
+            debug: debug,
+            supportBigNumbers: true,
+            multipleStatements: true
         };
     };
 
