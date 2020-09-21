@@ -46,7 +46,7 @@ db.sql('SELECT * FROM table_name').then((result) => {
 ```
 
 #### Escaping query values
-**Caution** These methods of escaping values only works when the `NO_BACKSLASH_ESCAPES` SQL mode is disabled (which is the default state for MySQL servers).
+**Caution!** These methods of escaping values only works when the `NO_BACKSLASH_ESCAPES` SQL mode is disabled (which is the default state for MySQL servers).
 
 In order to avoid SQL Injection attacks, you should always escape any user provided data before using it inside a SQL query. You can do this by using `?` characters as placeholders for values you would like to have escaped like this:
 
@@ -59,7 +59,7 @@ db.sql('SELECT * FROM users WHERE ID = ?', [userID]).then((result) => {
 });
 ```
 
-Multiple placeholders are mapped to values in the same order as passed. For example, in the following query `foo` equals `a`, `bar` equals `b`, `baz` equals `c`, and `ID` will be `userId`:
+Multiple placeholders are mapped to values in the same order as passed. For example, in the following query `foo` equals `a`, `bar` equals `b`, `baz` equals `c`, and `ID` will be `userID`:
 
 ```js
 var userID = 5;
@@ -71,3 +71,12 @@ db.sql('UPDATE users SET foo = ?, bar = ?, baz = ? WHERE ID = ?', ['a', 'b', 'c'
 ```
 
 ### Closing the connection
+If you are not going to use the connection anymore, you can close it by using the `close()` function. This function will wait until all pending queries are executed.
+
+```js
+db.close().then(() => {
+    console.log('Successfully disconnected!');
+}).catch((err) => {
+    console.log(err);
+});
+```
