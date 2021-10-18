@@ -2,26 +2,26 @@
 A very simple and easy to use promise-based MySQL wrapper for Node.js.
 
 ### Installation
-1) This library requires **mysql** module. First of all, install it using: `npm install mysql`.
-
-2) Copy the `rapidSQL.js` file to your script's root folder.
+```
+npm install @eugabrielsilva/rapidsql
+```
 
 ### Setting up
 ```js
-const rapidsql = require('./rapidSQL.js');
-const db = new rapidsql({host: _YOUR_HOST_, user: _YOUR_USER_, password: _YOUR_PASSWORD, database: _YOUR_DATABASE});
+const rapidSQL = require('@eugabrielsilva/rapidsql');
+const db = new rapidSQL({host: _YOUR_HOST_, user: _YOUR_USER_, password: _YOUR_PASSWORD, database: _YOUR_DATABASE});
 ```
 
-Provide the connection options when starting the script. Valid options are:
+Provide the connection options as an object in the database constructor. Valid options are:
 
-- `host` (optional): The hostname of the database you are connecting to. (Default `localhost`)
+- `host` (optional): The hostname of the database you are connecting to. (Defaults to `localhost`)
 - `user` **(required)**: The MySQL user to authenticate as.
 - `password` **(required)**: The password of that MySQL user.
 - `database` **(required)**: Name of the database to use for this connection.
-- `port` (optional): TThe port number to connect to. (Default `3306`)
-- `connectionLimit` (optional): The maximum number of connections to create at once. (Default `10`)
-- `stringifyObjects` (optional): Stringify objects instead of converting to values. (Default `false`)
-- `debug` (optional): Prints protocol details to stdout. (Default `false`)
+- `port` (optional): TThe port number to connect to. (Defaults to `3306`)
+- `connectionLimit` (optional): The maximum number of connections to create at once. (Defaults to `10`)
+- `stringifyObjects` (optional): Stringify objects instead of converting to values. (Defaults to `false`)
+- `debug` (optional): Prints protocol details to stdout. (Defaults to `false`)
 
 ### Connecting to the database
 This library uses connection pools as default. You only need to connect to the database once. The connection is made asynchronously.
