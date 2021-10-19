@@ -14,7 +14,7 @@ class Database{
     connectionOptions = null;
 
     /**
-     * 
+     *
      * @param {{host: string, user: string, password: string, database: string, port: number, connectionLimit: number, stringifyObjects: boolean, debug: boolean}} connectionOptions The connection options to be passed to mysql driver.
      */
     constructor({host='localhost', user, password, database, port=3306, connectionLimit=10, stringifyObjects=false, debug=false}){
@@ -52,7 +52,7 @@ class Database{
                     resolve();
                 });
             }catch(error){
-                throw error;
+                return reject(error);
             };
         });
     };
@@ -71,7 +71,7 @@ class Database{
                     resolve(result);
                 });
             }catch(error){
-                throw error;
+                return reject(error);
             };
         });
     };
@@ -89,7 +89,7 @@ class Database{
                 this.pool = null;
                 resolve();
             }catch(error){
-                throw error;
+                return reject(error);
             };
         });
     };
