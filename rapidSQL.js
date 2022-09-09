@@ -17,10 +17,8 @@ class Database{
      *
      * @param {{host: string, user: string, password: string, database: string, port: number, connectionLimit: number, stringifyObjects: boolean, debug: boolean}} connectionOptions The connection options to be passed to mysql driver.
      */
-    constructor({host='localhost', user, password, database, port=3306, connectionLimit=10, stringifyObjects=false, debug=false}){
-        if(!user) throw 'Please provide a user!';
-        if(!password) throw 'Please provide a password!';
-        if(!database) throw 'Please provide a database!';
+    constructor({host='localhost', user='root', password='', database, port=3306, connectionLimit=10, stringifyObjects=false, debug=false}){
+        if(!database) throw 'rapidSQL error: Please provide a database name!';
         this.connectionOptions = {
             host: host,
             user: user,

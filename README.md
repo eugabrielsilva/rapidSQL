@@ -15,8 +15,8 @@ const db = new rapidSQL({host: DB_HOST, user: DB_USER, password: DB_PASSWORD, da
 Provide the connection options as an object in the database constructor. Valid options are:
 
 - `host` (optional): The hostname of the database you are connecting to. (Defaults to `localhost`)
-- `user` **(required)**: The MySQL user to authenticate as.
-- `password` **(required)**: The password of that MySQL user.
+- `user` (optional): The MySQL user to authenticate as. (Defaults to `root`)
+- `password` (optional): The password of that MySQL user. (Defaults to empty)
 - `database` **(required)**: Name of the database to use for this connection.
 - `port` (optional): The port number to connect to. (Defaults to `3306`)
 - `connectionLimit` (optional): The maximum number of connections to create at once. (Defaults to `10`)
